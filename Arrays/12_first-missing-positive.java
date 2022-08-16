@@ -26,6 +26,7 @@ If each cell in the array were to contain positive integers only, we can use the
 
 class Solution {
     public int firstMissingPositive(int[] nums) {
+        
         int n = nums.length;
         
         for(int i = 0; i < n; i++){

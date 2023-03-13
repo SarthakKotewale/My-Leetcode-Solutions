@@ -90,7 +90,7 @@ public class Main {
       
       while(st.size() > 0){
           Pair top = st.peek();
-          
+
           if(top.state == 1){
               pre += top.node.data + " ";
               top.state++;
@@ -134,4 +134,56 @@ public class Main {
     iterativePrePostInTraversal(root);
   }
 
+}
+
+//Iterative Preorder traversal method 2 ( for LEETCODE)
+
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if(root == null)
+            return res;
+        Stack<TreeNode> st = new Stack<>();
+        st.push(root);
+
+        while(st.size() > 0){
+            root = st.pop();
+            res.add(root.val);
+
+            if(root.right != null){
+                st.push(root.right);
+            }
+            if(root.left != null){
+                st.push(root.left);
+            }
+        }
+        return res;
+        // if(root == null){
+        //     return retVal;
+        // }
+        // TreeNode curr = root;
+        
+        // while(curr != null){
+        //     if(curr.left == null){
+        //         retVal.add(curr.val);
+        //         curr = curr.right;
+        //     }else{
+        //         TreeNode iop = curr.left;
+        //         while(iop.right != null && iop.right != curr){
+        //             iop = iop.right;
+        //         }
+                
+        //         if(iop.right == null){
+        //             retVal.add(curr.val);
+        //             iop.right = curr;
+        //             curr = curr.left;
+        //         }else{
+        //             iop.right = null;
+                    
+        //             curr = curr.right;
+        //         }
+        //     }
+        // }
+        // return retVal;
+    }
 }

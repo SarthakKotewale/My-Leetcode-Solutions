@@ -187,3 +187,71 @@ class Solution {
         // return retVal;
     }
 }
+
+
+//Iterative Inorder traversal method 2 ( for LEETCODE)
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> st = new Stack<>();
+        TreeNode node = root;
+        
+        while(true){
+            if(node != null){
+                st.push(node);
+                node = node.left;
+            }else{
+                if(st.isEmpty()){
+                    break;
+                }
+                node = st.pop();
+                res.add(node.val);
+                node = node.right;
+            }
+        }
+
+        return res;
+        // if(root == null){
+        //     return retVal;
+        // }
+        // TreeNode curr = root;
+        
+        // while(curr != null){
+        //     if(curr.left == null){
+        //         retVal.add(curr.val);
+        //         curr = curr.right;
+        //     }else{
+        //         TreeNode iop = curr.left;
+        //         while(iop.right != null && iop.right != curr){
+        //             iop = iop.right;
+        //         }
+                
+        //         if(iop.right == null){
+        //             iop.right = curr; //thread
+        //             curr = curr.left;
+        //         }else{
+        //             iop.right = null;
+        //             retVal.add(curr.val);
+        //             curr = curr.right;
+        //         }
+        //     }
+        // }
+        // return retVal;
+    }
+}

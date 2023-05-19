@@ -20,7 +20,7 @@ There is no such sub-array with sum 6. */
 
 
 
-//BRUTEFORCE
+//BRUTEFORCE ~ O(N^3)
 class Solution{
     public static int lenOfLongSubarr (int A[], int N, int K) {
         int ans = 0;
@@ -42,3 +42,23 @@ class Solution{
     }
 }
 
+
+//BETTER ~ O(N^2)
+class Solution{
+    public static int lenOfLongSubarr (int A[], int N, int K) {
+        int ans = 0;
+        for(int i = 0; i < N; i++){
+            
+            int sum = 0;
+            for(int j = i; j < N; j++){
+                
+                sum += A[j];
+                
+                if(sum == K){
+                    ans = Math.max(ans, j - i + 1);
+                }                
+            }
+        }
+        return ans;
+    }
+}

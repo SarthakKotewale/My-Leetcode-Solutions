@@ -64,3 +64,31 @@ class Solution{
 }
 
 
+// BETTER (hashing)
+class Solution{
+    public static int lenOfLongSubarr (int A[], int N, int K) {
+
+        // By Hashing
+        HashMap<Integer, Integer> map = new HashMap<>(); //prefix sum hashmap
+        int sum = 0;
+        int maxlen = 0;
+        for(int i = 0; i < N; i++){
+            sum += A[i];
+            if(sum == K){
+                maxlen = Math.max(maxlen, i + 1);
+            }
+            int rem = sum - K;
+            
+            if(map.containsKey(rem) == true){
+                int len = i - map.get(rem);
+                maxlen = Math.max(maxlen, len);
+            }
+            
+            if (!map.containsKey(sum)) {        // <-- ??
+                map.put(sum, i);
+            }
+        }
+        
+        return maxlen;
+    }
+}

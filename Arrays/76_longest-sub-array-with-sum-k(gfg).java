@@ -43,7 +43,7 @@ class Solution{
 }
 
 
-//BETTER ~ O(N^2)
+//BRUTEFORCE2 ~ O(N^2)
 class Solution{
     public static int lenOfLongSubarr (int A[], int N, int K) {
         int ans = 0;
@@ -62,3 +62,5 @@ class Solution{
         return ans;
     }
 }
+
+

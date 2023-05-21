@@ -64,7 +64,7 @@ class Solution{
 }
 
 
-// BETTER (hashing)
+// BETTER approach
 class Solution{
     public static int lenOfLongSubarr (int A[], int N, int K) {
 
@@ -91,4 +91,8 @@ class Solution{
         
         return maxlen;
     }
-}
+}  // But above code works for positive values only. If there are 0's in the array, code will not work
+
+
+
+

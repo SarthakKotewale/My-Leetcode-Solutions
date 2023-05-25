@@ -45,3 +45,32 @@ class Solution {
         return cnt;
     }
 }
+
+class Solution
+{
+    long subCount(long arr[] ,int n,int k){
+        long cnt = 0;
+        long sum = 0;
+        long rem = 0;
+        HashMap<Long, Long> map = new HashMap<>();
+        map.put(sum, 1L);
+        
+        for(long val : arr){
+            sum += val;
+            rem = sum % k;
+            if(rem < 0){
+                rem += k;
+            }
+            if(map.containsKey(rem)){
+                long v = map.get(rem);
+                cnt += v;
+                
+                map.put(rem, v + 1L);
+            }else{
+                map.put(rem, 1L);
+            }
+        }
+        
+        return cnt;
+    }
+}

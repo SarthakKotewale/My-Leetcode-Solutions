@@ -32,7 +32,7 @@ class Solution {
         for(int i = 0; i < nums.length; i++){
             sum += nums[i];
             rem = sum % k;
-            if(rem < 0){
+            if(rem < 0){ //for -ve values
                 rem += k;
             }
             

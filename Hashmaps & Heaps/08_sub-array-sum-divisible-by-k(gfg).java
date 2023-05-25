@@ -58,7 +58,7 @@ class Solution
         for(long val : arr){
             sum += val;
             rem = sum % k;
-            if(rem < 0){
+            if(rem < 0){ //for -ve values
                 rem += k;
             }
             if(map.containsKey(rem)){

@@ -55,10 +55,38 @@ class Solution {
         
         int diff = smin - min;
         for(int i = 0; i < n; i++){
-            // int term = min + (i - 1) * diff;
             if(set.contains(min)){
                 min = min + diff;
             }else{
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+//Similar method as above with slight change
+class Solution {
+    boolean checkIsAP(int arr[] ,int n){
+        
+        int min = Integer.MAX_VALUE;
+        int smin = Integer.MAX_VALUE;
+        
+        HashSet<Integer> set = new HashSet<>();
+        for(int val : arr){
+            set.add(val);
+            if(val < min){
+                smin = min;
+                min = val;
+            }else if(val < smin){
+                smin = val;
+            }
+        }
+        
+        int diff = smin - min;
+        for(int i = 1; i <= n; i++){
+            int term = min + (i - 1) * diff; //
+            if(!set.contains(term)){
                 return false;
             }
         }

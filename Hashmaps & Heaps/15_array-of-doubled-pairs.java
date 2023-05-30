@@ -23,7 +23,7 @@ class Solution {
         for(int val : arr){
             map.put(val, map.getOrDefault(val, 0) + 1);
         }
-        Arrays.sort(arr); //
+        Arrays.sort(arr); // for cases like [2, 8, 1, 4]
 
         for(int val : arr){
             
@@ -41,7 +41,7 @@ class Solution {
                 }
             }
         }
-        
+
         if(map.size() == 0){
             return true;
         }else if(map.size() == 1 && map.containsKey(0)){

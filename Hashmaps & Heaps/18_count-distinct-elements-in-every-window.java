@@ -22,7 +22,7 @@ Output: 2 1 */
 
 class Solution {
     ArrayList<Integer> countDistinct(int A[], int n, int k){
-        //Acquire & release method
+        //Acquire & release
         ArrayList<Integer> list = new ArrayList<>();
         int cnt = 0;
         HashMap<Integer, Integer> map = new HashMap<>();

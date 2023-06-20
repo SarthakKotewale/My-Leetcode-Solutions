@@ -37,7 +37,7 @@ Explanation:
 
 class Solution {
     public int[] getAverages(int[] nums, int k) {
-        //DC 20.6.23 NOT MY SOLUTION
+        //DC 20.6.23
         int n = nums.length;
         int windowSize = 2 * k + 1;
 

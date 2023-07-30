@@ -22,3 +22,22 @@ class Solution {
         return rlf(nxt, head);
     }
 }
+// Method 2 (pep intuitive)(gfg)
+class Solution 
+{
+    //Function to reverse a linked list.
+    Node reverseList(Node head)
+    {
+        // code here
+        Node res = reverseListHelper(head);
+        return res;
+    }
+    Node reverseListHelper(Node head){
+        if(head == null || head.next == null) return head;
+        
+        Node h = reverseListHelper(head.next);
+        head.next.next = head;
+        head.next = null;
+        return h;
+    }
+}

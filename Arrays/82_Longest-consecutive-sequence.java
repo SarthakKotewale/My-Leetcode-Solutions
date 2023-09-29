@@ -24,7 +24,7 @@ class Solution {
     }
 }
 
-// Better
+// Better / optimal1
 class Solution {
     public int longestConsecutive(int[] nums) {
         //Better
@@ -44,6 +44,30 @@ class Solution {
                 lastSmaller = nums[i];
             }
             longestSeq = Math.max(longestSeq, cnt);
+        }
+        return longestSeq;
+    }
+}
+
+//Optimal 2 [using hashset]
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        
+        HashSet<Integer> set = new HashSet<>();
+        for(int ele : nums){
+            set.add(ele);
+        }
+        int longestSeq = 0;
+        for(int i : set){
+            if(!set.contains(i - 1)){ //starting point of a sequence
+                int x = i;
+                int cnt = 1;
+                while(set.contains(x + 1)){
+                    cnt++;
+                    x++;
+                }
+                longestSeq = Math.max(longestSeq, cnt);
+            }
         }
         return longestSeq;
     }

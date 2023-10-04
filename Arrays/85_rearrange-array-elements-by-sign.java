@@ -19,7 +19,7 @@ Other ways such as [1,-2,2,-5,3,-4], [3,1,2,-2,-5,-4], [-2,3,-5,1,-4,2] are inco
 //Bruteforce
 class Solution {
     public int[] rearrangeArray(int[] nums) {
-        
+
         int[] pos = new int[nums.length / 2];
         int[] neg = new int[nums.length / 2];
         int posIndex = 0;
@@ -64,4 +64,24 @@ class Solution {
         return nums;
     }
 }
-//Above both solutions are brute
+
+
+// Optimal soln (only a bit better than brute)
+class Solution { /*Runtime beats 100% | Memeory beats 50% */
+    public int[] rearrangeArray(int[] nums) {
+        
+        int posidx = 0;
+        int negidx = 1;
+        int[] res = new int[nums.length];
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] > 0){
+                res[posidx] = nums[i]; 
+                posidx += 2;
+            }else{
+                res[negidx] = nums[i];
+                negidx += 2;
+            }
+        }
+        return res;
+    }
+}

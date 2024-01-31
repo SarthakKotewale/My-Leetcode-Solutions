@@ -31,23 +31,41 @@ The pivot index is 0.
 Left sum = 0 (no elements to the left of index 0)
 Right sum = nums[1] + nums[2] = 1 + -1 = 0 */
 
-
-
 class Solution {
     public int pivotIndex(int[] nums) {
         int lsum = 0;
         int rsum = 0;
 
-        for(int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             rsum += nums[i];
         }
 
-        for(int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             rsum -= nums[i];
-            if(rsum == lsum){
+            if (rsum == lsum) {
                 return i;
             }
             lsum += nums[i];
+        }
+        return -1;
+    }
+}
+
+// Method 2
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int[] pre = new int[nums.length];
+        pre[0] = 0;
+        int sum = nums[0];
+        
+        for (int i = 1; i < nums.length; i++) {
+            sum += nums[i];
+            pre[i] = pre[i - 1] + nums[i - 1];
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (pre[i] == sum - pre[i] - nums[i]) {
+                return i;
+            }
         }
         return -1;
     }
